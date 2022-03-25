@@ -1,0 +1,61 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Create";
+    var Departments = new SelectList(ViewBag.Departments,"Id","Name");
+}
+
+<h1>Create</h1>
+<br />
+<br />
+<form asp-action="Create">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label class="col-form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="HireDate"></label>
+        <input class="form-control" asp-for="HireDate" />
+        <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+    <div class="demo-checkbox">
+        <input asp-for="IsActive" type="checkbox" />
+        <label asp-for="IsActive"></label>
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+        @*<label class="col-form-label" asp-for="@Model.Department.Name"></label>
+        <input class="form-control" asp-for="Department.Name" />
+        <span asp-validation-for="Department.Name"></span>*@
+    <div class="form-group">
+            <label class="col-form-label" asp-for="DepartmentId"></label>
+            <select asp-for="DepartmentId" asp-items="Departments" class="form-control">
+                <option>Choose a department...</option>
+            </select>
+
+            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
+    
+    <input type="submit" class="btn btn-primary" value="Add" />
+    <a asp-action="Index" class="btn btn-light">Return to Employees</a>
+</form>
+
+@section Scripts
+{
+    <partial name= "_ValidationScriptsPartial"/>
+}

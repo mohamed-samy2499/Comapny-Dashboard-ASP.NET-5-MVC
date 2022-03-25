@@ -1,0 +1,41 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Details";
+    string DeptName = ViewData["DeptName"] as string;
+}
+
+<h1>Details</h1>
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Name)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Name)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Address)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Address)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Salary)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Salary)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Email)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.Email)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.HireDate)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.HireDate)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.IsActive)</div>
+        <div class="col-md-10">@Html.DisplayFor(m => m.IsActive)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.DepartmentId)</div>
+        <div class="col-md-10">@DeptName</div>
+    </div>
+     <a asp-action="Index" class="btn btn-light">Return to Employees</a>
+</div>

@@ -1,0 +1,18 @@
+﻿@model DepartmentViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<br />
+<br />
+<form asp-action = "Edit">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.Name"></label>
+        <input class="form-control" asp-for="Name" placeholder="@Html.DisplayFor(m=>m.Name)"/>
+        <span asp-validation-for="Name"></span>
+
+    </div>
+    <input type="submit" class="btn btn-primary" value="Update" />
+    <a asp-action="Index" class="btn btn-light">Return To Departments</a>
+</form>

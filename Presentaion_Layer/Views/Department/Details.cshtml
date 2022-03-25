@@ -1,0 +1,17 @@
+﻿@model DepartmentViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<br />
+<br />
+<dl>
+    <dt>@Html.DisplayNameFor(m => m.Name)</dt>
+    <dd>@Html.DisplayFor(m=>m.Name)</dd>
+</dl>
+<br />
+<br />
+<a asp-action="Index" class="btn btn-light">Return To Departments</a>   
+
+

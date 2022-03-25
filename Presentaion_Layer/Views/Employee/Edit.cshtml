@@ -1,0 +1,56 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Edit";
+    var Departments =new SelectList(ViewBag.Departments,"Id","Name");
+}
+<h1>Edit</h1>
+<br />
+<br />
+<form asp-action = "Edit">
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.Salary"></label>
+        <input class="form-control" asp-for="Salary"/>
+        <span asp-validation-for="Salary"></span>
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address"></span>
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.Email"></label>
+        <input class="form-control" asp-for="Email"/>
+        <span asp-validation-for="Email"></span>
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.HireDate"></label>
+        <input class="form-control" asp-for="HireDate" placeholder="@Html.DisplayFor(m=>m.HireDate)"/>
+        <span asp-validation-for="HireDate"></span>
+
+    </div>
+ <div class="demo-checkbox">
+        <input asp-for="IsActive" type="checkbox" />
+        <label asp-for="IsActive"></label>
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+
+      <div class="form-group">
+            <label class="col-form-label" asp-for="DepartmentId"></label>
+            <select asp-for="DepartmentId" asp-items="Departments" class="form-control">
+                <option>Choose a department...</option>
+            </select>
+
+            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Update" />
+    <a asp-action="Index" class="btn btn-light">Return to Employees</a>
+</form>
