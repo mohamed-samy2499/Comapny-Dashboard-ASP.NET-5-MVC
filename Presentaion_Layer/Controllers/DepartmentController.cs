@@ -4,6 +4,7 @@ using Data_Access_Layer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Presentaion_Layer.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Presentaion_Layer.Controllers
 {
@@ -21,7 +22,7 @@ namespace Presentaion_Layer.Controllers
 
         public IActionResult Index()
         {
-            var MappedDeps = Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentViewModel>>(unitOfWork.DepartmentRpository.GetAll());
+            var MappedDeps = Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentViewModel>>(unitOfWork.DepartmentRpository.GetAll().Result);
             return View(MappedDeps);
         }
         [HttpGet]
@@ -30,12 +31,12 @@ namespace Presentaion_Layer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(DepartmentViewModel department)
+        public async Task<IActionResult> Create(DepartmentViewModel department)
         {
             if (ModelState.IsValid)
             {
                 var Mappeddepartment = Mapper.Map<DepartmentViewModel,Department>(department);
-                unitOfWork.DepartmentRpository.Add(Mappeddepartment);
+                await unitOfWork.DepartmentRpository.Add(Mappeddepartment);
                 return RedirectToAction("Index");
             }
             return View(department);
@@ -44,7 +45,7 @@ namespace Presentaion_Layer.Controllers
         {
             if (id == null)
                 return NotFound();
-            var department = unitOfWork.DepartmentRpository.Get(id);
+            var department = unitOfWork.DepartmentRpository.Get(id).Result;
             if (department == null)
                 return NotFound();
             var MappedDept = Mapper.Map<Department,DepartmentViewModel>(department);
@@ -56,7 +57,7 @@ namespace Presentaion_Layer.Controllers
             
             if (id == null)
                 return NotFound();
-            var department = unitOfWork.DepartmentRpository.Get(id);
+            var department = unitOfWork.DepartmentRpository.Get(id).Result;
             if (department == null)
                 return NotFound();
             var MappedDept = Mapper.Map<Department, DepartmentViewModel>(department);
@@ -64,22 +65,22 @@ namespace Presentaion_Layer.Controllers
         }
         [HttpPost]
 
-        public IActionResult Edit(DepartmentViewModel department)
+        public async Task<IActionResult> Edit(DepartmentViewModel department)
         {
             if (ModelState.IsValid)
             {
                 var Mappeddp =Mapper.Map<DepartmentViewModel , Department>(department);
-                unitOfWork.DepartmentRpository.Update(Mappeddp);
+                await unitOfWork.DepartmentRpository.Update(Mappeddp);
                 return RedirectToAction("Index");
             }
             return View(department);
         }
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var department = unitOfWork.DepartmentRpository.Get(id);
+            var department = unitOfWork.DepartmentRpository.Get(id).Result;
             if (department == null)
                 return NotFound("Error");
-            unitOfWork.DepartmentRpository.Delete(department);
+            await unitOfWork.DepartmentRpository.Delete(department);
             return RedirectToAction("Index");
         }
     }

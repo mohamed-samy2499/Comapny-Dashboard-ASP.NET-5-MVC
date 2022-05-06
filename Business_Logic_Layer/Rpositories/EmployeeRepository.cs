@@ -19,9 +19,9 @@ namespace Business_Logic_Layer.Rpositories
             this.context = context;
         }
 
-        public IEnumerable<Employee> GetEmployeeAndDepartment()
+        public async Task<IEnumerable<Employee>> GetEmployeeAndDepartment()
         {
-            return context.Employees.Include(E => E.Department).ToList();
+            return await context.Employees.Include(E => E.Department).ToListAsync();
 
         }
     }

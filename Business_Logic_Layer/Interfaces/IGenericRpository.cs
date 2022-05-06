@@ -8,10 +8,10 @@ namespace Business_Logic_Layer.Interfaces
 {
     public interface IGenericRpository<T>  where T : class
     {
-        T Get(int? id);
-        IEnumerable<T> GetAll();
-        int Add(T item);
-        int Update(T item);
-        int Delete(T item);
+        Task<T> Get(int? id);
+        Task<IEnumerable<T>> GetAll();
+        Task<int> Add(T item);
+        Task<int> Update(T item);
+        Task<int> Delete(T item);
     }
 }

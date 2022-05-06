@@ -7,6 +7,7 @@
 <br />
 <br />
 <form asp-action = "Edit">
+    <input hidden asp-for="Id" />
     <div class="form-group">
         <label class="col-form-label" asp-for="@Model.Name"></label>
         <input class="form-control" asp-for="Name" />
