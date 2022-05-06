@@ -19,10 +19,18 @@ namespace Presentaion_Layer.Controllers
             this.unitOfWork = unitOfWork;
             Mapper = mapper;
         }
-        public IActionResult Index()
+        public IActionResult Index(string SearchValue = "")
         {
-            var MapedEmps = Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(unitOfWork.EmployeeRepository.GetEmployeeAndDepartment().Result);
-            return View(MapedEmps);
+            if (string.IsNullOrEmpty(SearchValue)) 
+            {
+                var MapedEmps = Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(unitOfWork.EmployeeRepository.GetEmployeeAndDepartment().Result);
+                return View(MapedEmps);
+            }
+            else 
+            {
+                var MapedEmps = Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(unitOfWork.EmployeeRepository.SearchEmployeeAndDepartment(E=> E.Name.Contains(SearchValue)));
+                return View(MapedEmps);
+            }
         }
         [HttpGet]
         public IActionResult Create() 

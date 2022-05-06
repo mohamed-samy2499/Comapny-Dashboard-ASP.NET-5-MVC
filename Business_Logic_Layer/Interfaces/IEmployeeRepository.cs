@@ -10,5 +10,6 @@ namespace Business_Logic_Layer.Interfaces
     public interface IEmployeeRepository:IGenericRpository<Employee>
     {
         Task<IEnumerable<Employee>> GetEmployeeAndDepartment();
+        IEnumerable<Employee> SearchEmployeeAndDepartment(Func<Employee,bool> func);
     }
 }

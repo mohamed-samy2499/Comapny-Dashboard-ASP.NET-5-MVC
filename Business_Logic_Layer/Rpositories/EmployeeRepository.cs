@@ -24,5 +24,10 @@ namespace Business_Logic_Layer.Rpositories
             return await context.Employees.Include(E => E.Department).ToListAsync();
 
         }
+        public  IEnumerable<Employee> SearchEmployeeAndDepartment(Func<Employee, bool> func)
+        {
+            return context.Employees.Include(E => E.Department).Where(func).ToList();
+
+        }
     }
 }
