@@ -27,5 +27,8 @@ namespace Data_Access_Layer.Entities
 
         public virtual Department Department { get; set; }
 
+        public int DistrictId { get; set; }
+        public virtual District District { get; set; }
+
     }
 }

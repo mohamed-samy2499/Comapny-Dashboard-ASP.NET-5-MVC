@@ -10,30 +10,40 @@ namespace Presentaion_Layer.Controllers
 {
     public class EmployeeController : Controller
     {
+        #region Properties
         private readonly IUnitOfWork unitOfWork;
 
         public IMapper Mapper { get; }
+        #endregion
 
-        public EmployeeController(IUnitOfWork unitOfWork,IMapper mapper)
+        #region Constructor
+        public EmployeeController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             this.unitOfWork = unitOfWork;
             Mapper = mapper;
         }
+        #endregion
+
+        #region Actions
+        #region Index
         public IActionResult Index(string SearchValue = "")
         {
-            if (string.IsNullOrEmpty(SearchValue)) 
+            if (string.IsNullOrEmpty(SearchValue))
             {
                 var MapedEmps = Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(unitOfWork.EmployeeRepository.GetEmployeeAndDepartment().Result);
                 return View(MapedEmps);
             }
-            else 
+            else
             {
-                var MapedEmps = Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(unitOfWork.EmployeeRepository.SearchEmployeeAndDepartment(E=> E.Name.Contains(SearchValue)));
+                var MapedEmps = Mapper.Map<IEnumerable<Employee>, IEnumerable<EmployeeViewModel>>(unitOfWork.EmployeeRepository.SearchEmployeeAndDepartment(E => E.Name.Contains(SearchValue)));
                 return View(MapedEmps);
             }
         }
+        #endregion
+
+        #region Create
         [HttpGet]
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             ViewBag.Departments = unitOfWork.DepartmentRpository.GetAll().Result;
             return View();
@@ -42,16 +52,19 @@ namespace Presentaion_Layer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(EmployeeViewModel employee)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
-                var MappedEmp = Mapper.Map<EmployeeViewModel,Employee>(employee);
+                var MappedEmp = Mapper.Map<EmployeeViewModel, Employee>(employee);
                 await unitOfWork.EmployeeRepository.Add(MappedEmp);
                 return RedirectToAction("Index");
             }
             ViewBag.Departments = unitOfWork.DepartmentRpository.GetAll().Result;
             return View(employee);
         }
-        public IActionResult Details(int? id,string ViewName = "Details")
+        #endregion
+
+        #region Details
+        public IActionResult Details(int? id, string ViewName = "Details")
         {
 
             if (id == null)
@@ -62,30 +75,36 @@ namespace Presentaion_Layer.Controllers
             Department dept = unitOfWork.DepartmentRpository.Get(emp.DepartmentId).Result;
             ViewData["DeptName"] = dept.Name;
             var MappedEmp = Mapper.Map<Employee, EmployeeViewModel>(emp);
-            return View(ViewName,MappedEmp);
+            return View(ViewName, MappedEmp);
         }
+        #endregion
+
+        #region Delete
         public IActionResult Delete(int? id)
         {
 
-            return Details(id,"Delete");
+            return Details(id, "Delete");
         }
-        [HttpPost,ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int ?id , EmployeeViewModel emp) 
+        public async Task<IActionResult> DeleteConfirmed(int? id, EmployeeViewModel emp)
         {
-            if(id != emp.Id)
+            if (id != emp.Id)
                 return NotFound();
-            try 
+            try
             {
-                var MappedEmp = Mapper.Map<EmployeeViewModel,Employee>(emp);
+                var MappedEmp = Mapper.Map<EmployeeViewModel, Employee>(emp);
                 await unitOfWork.EmployeeRepository.Delete(MappedEmp);
                 return RedirectToAction(nameof(Index));
             }
-            catch 
-            { 
+            catch
+            {
                 return NotFound();
             }
         }
+        #endregion
+
+        #region Edit
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -95,14 +114,14 @@ namespace Presentaion_Layer.Controllers
             if (emp == null)
                 return NotFound();
             ViewBag.Departments = unitOfWork.DepartmentRpository.GetAll().Result;
-            var MappedEmp = Mapper.Map<Employee,EmployeeViewModel>(emp);
+            var MappedEmp = Mapper.Map<Employee, EmployeeViewModel>(emp);
             return View(MappedEmp);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,EmployeeViewModel employee)
+        public async Task<IActionResult> Edit(int id, EmployeeViewModel employee)
         {
-            if(employee.Id != id)
+            if (employee.Id != id)
                 return BadRequest();
             ViewBag.Departments = unitOfWork.DepartmentRpository.GetAll().Result;
             if (ModelState.IsValid)
@@ -113,5 +132,12 @@ namespace Presentaion_Layer.Controllers
             }
             return View(employee);
         }
+        #endregion
+        #endregion
+
+        #region Ajax APIs
+
+        #endregion
+
     }
 }
