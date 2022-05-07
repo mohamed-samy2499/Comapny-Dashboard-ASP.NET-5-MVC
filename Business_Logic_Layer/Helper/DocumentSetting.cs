@@ -25,5 +25,14 @@ namespace Business_Logic_Layer.Helper
             }
             return FileName;
         }
+        public static void DeleteFile(string FolderName, string FileName) 
+        {
+            string FullPath = Path.Combine(Directory.GetCurrentDirectory(), FolderName, FileName);
+            if (File.Exists(FullPath)) 
+            {
+                File.Delete(FullPath);
+
+            }
+        }
     }
 }

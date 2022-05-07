@@ -104,8 +104,11 @@ namespace Presentaion_Layer.Controllers
                 return NotFound();
             try
             {
-                var MappedEmp = Mapper.Map<EmployeeViewModel, Employee>(emp);
-                await unitOfWork.EmployeeRepository.Delete(MappedEmp);
+                var employee = unitOfWork.EmployeeRepository.Get(id).Result;
+                DocumentSetting.DeleteFile("wwwroot/files/Imgs/", employee.ImgName);
+                DocumentSetting.DeleteFile("wwwroot/files/CVs/", employee.CVName);
+
+                await unitOfWork.EmployeeRepository.Delete(employee);
                 return RedirectToAction(nameof(Index));
             }
             catch
