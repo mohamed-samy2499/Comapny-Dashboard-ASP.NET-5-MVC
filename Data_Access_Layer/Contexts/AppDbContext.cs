@@ -18,5 +18,10 @@ namespace Data_Access_Layer.Contexts
         }
         public DbSet<Employee>Employees { get; set; }
         public DbSet<Department> Departments { get; set;}
+
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+
+        public DbSet<District> Districts { get; set; }
     }
 }

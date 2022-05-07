@@ -10,6 +10,7 @@ namespace Business_Logic_Layer.Interfaces
     {
         Task<T> Get(int? id);
         Task<IEnumerable<T>> GetAll();
+        IEnumerable<T> GetAll(Func<T,bool> func);
         Task<int> Add(T item);
         Task<int> Update(T item);
         Task<int> Delete(T item);

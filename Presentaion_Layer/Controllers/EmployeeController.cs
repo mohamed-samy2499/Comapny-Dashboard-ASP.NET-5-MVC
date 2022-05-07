@@ -136,7 +136,24 @@ namespace Presentaion_Layer.Controllers
         #endregion
 
         #region Ajax APIs
-
+        public  IActionResult GetCitiesByCountryId(int? id) 
+        {
+            if (id == null)
+                return NotFound();
+            var Cities = unitOfWork.CityRepository.GetAll(C => C.CountryId == id);
+            if (Cities == null)
+                return NotFound();
+            return Json(Cities);
+        }
+        public IActionResult GetDistrictsByCityId(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            var Districts = unitOfWork.DistrictRepository.GetAll(C => C.CityId == id);
+            if (Districts == null)
+                return NotFound();
+            return Json(Districts);
+        }
         #endregion
 
     }

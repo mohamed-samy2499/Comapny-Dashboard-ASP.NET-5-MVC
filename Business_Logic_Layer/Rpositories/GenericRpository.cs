@@ -35,6 +35,8 @@ namespace Business_Logic_Layer.Rpositories
         public async Task<IEnumerable<T>> GetAll()
         => await context.Set<T>().ToListAsync();   
 
+        public IEnumerable<T> GetAll(Func<T,bool> func)
+            => context.Set<T>().Where(func).ToList();
         public async Task<int> Update(T item)
         {
             context.Set<T>().Update(item);

@@ -10,5 +10,9 @@ namespace Business_Logic_Layer.Interfaces
     {
         public IEmployeeRepository EmployeeRepository { get; set; }
         public IDepartmentRpository DepartmentRpository { get; set; }
+
+        public ICityRepository CityRepository { get; set; }
+        public IDistrictRepository DistrictRepository { get; set; }
+
     }
 }

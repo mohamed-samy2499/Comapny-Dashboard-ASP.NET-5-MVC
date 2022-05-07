@@ -35,6 +35,10 @@ namespace Presentaion_Layer
             services.AddScoped<IUnitOfWork , UnitOfWork>();
             services.AddScoped<IEmployeeRepository,EmployeeRepository>();
             services.AddScoped<IDepartmentRpository,DepartmentRepository>();
+            services.AddScoped<ICityRepository, CityRpository>();
+            services.AddScoped<IDistrictRepository, DistrictRepository>();
+
+
             services.AddAutoMapper(M=> M.AddProfile(new EmployeeProfile()));
             services.AddAutoMapper(M => M.AddProfile(new DepartmentProfile()));
         }
