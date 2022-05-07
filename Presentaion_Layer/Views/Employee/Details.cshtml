@@ -33,6 +33,19 @@
         <div class="col-md-2">@Html.DisplayNameFor(m => m.IsActive)</div>
         <div class="col-md-10">@Html.DisplayFor(m => m.IsActive)</div>
     </div>
+     <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Image)</div>
+        <div class="col-md-10"><img src="~/files/Imgs/@Model.ImgName" height="40" width="40" alt="No image" class="rounded-pill-circle"/></div>
+    </div>  
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.CV)</div>
+         <a href="~/files/CVs/@Model.CVName" class="btn btn-primary" target="_blank">Open CV</a>
+         <a href="~/files/CVs/@Model.CVName" download="download" class="btn btn-info">Download CV</a>
+    </div> 
+    <br />
+    <br />
     <div class="row">
         <div class="col-md-2">@Html.DisplayNameFor(m => m.DepartmentId)</div>
         <div class="col-md-10">@DeptName</div>

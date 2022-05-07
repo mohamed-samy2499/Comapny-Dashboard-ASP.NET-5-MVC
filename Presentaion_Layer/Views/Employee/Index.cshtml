@@ -32,15 +32,17 @@
 @if(Model?.Count() >0)
 {
 <div>
-    <table class = "table table-striped table-hover">
+    <table class = "table table-striped table-hover text-center">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>@Html.DisplayNameFor(m => m.Name)</th>
                 <th>@Html.DisplayNameFor(m => m.Salary)</th>
                 <th>@Html.DisplayNameFor(m => m.Address)</th>
                 <th>@Html.DisplayNameFor(m => m.IsActive)</th>
                 <th>@Html.DisplayNameFor(m => m.HireDate)</th>
                 <th>@Html.DisplayNameFor(m => m.Email)</th>
+                <th>@Html.DisplayNameFor(m => m.Image)</th>
+                <th class="text-center">@Html.DisplayNameFor(m => m.CV)</th>
                 <th>@Html.DisplayNameFor(m => m.DepartmentId)</th>
                 <th>Details</th>
                 <th>Update</th>
@@ -57,6 +59,14 @@
                     <td>@item.IsActive</td>
                     <td>@item.HireDate</td>
                     <td>@item.Email</td>
+                    <td>
+                        <img src="~/files/Imgs/@item.ImgName" height="40" width="40" alt="No image" class="rounded-pill-circle"/>
+                    </td>
+                    <td>
+                        <a href="~/files/CVs/@item.CVName" class="btn btn-primary" target="_blank">Open CV</a>
+                        <a href="~/files/CVs/@item.CVName" download="download" class="btn btn-info">Download CV</a>
+                        
+                    </td>
                     <td>@item.Department?.Name</td>
                     <td>
                         <a  class = "btn btn-info" asp-action="Details" asp-controller = "Employee" asp-route-id="@item.Id">

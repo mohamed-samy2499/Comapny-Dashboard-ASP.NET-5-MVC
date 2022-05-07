@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Presentaion_Layer.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.IO;
+using System;
+using Business_Logic_Layer.Helper;
 
 namespace Presentaion_Layer.Controllers
 {
@@ -56,6 +59,12 @@ namespace Presentaion_Layer.Controllers
         {
             if (ModelState.IsValid)
             {
+                #region Upload Image
+                employee.ImgName = DocumentSetting.UploadFile(employee.Image,"Imgs");
+                #endregion
+                #region Upload CV
+                employee.CVName = DocumentSetting.UploadFile(employee.CV, "CVs");
+                #endregion
                 var MappedEmp = Mapper.Map<EmployeeViewModel, Employee>(employee);
                 await unitOfWork.EmployeeRepository.Add(MappedEmp);
                 return RedirectToAction("Index");

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XRSNq3UwQgJDkhOd+dljvdi1YTj+T/uYGwm00Nfm50ZX1RCqXlMGpPetGoHRk7iWQUOmbAfSIE5EQzIiaFF6RA==",
+  "dgSpecHash": "WhL/3mVcQTGJ+GhYfIcZ4Kmpp2vI/ncbNoOlCc39OpJxe1nVebt6xu8W60BuRSFp8Q4kbKGwyF0Vz4Tc0rT6Sw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mohamed\\source\\repos\\Comapny-Website-ASP.NET-5-MVC\\Presentaion_Layer\\Presentaion_Layer.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\mohamed\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\mohamed\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mohamed\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\mohamed\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.16\\microsoft.aspnetcore.http.features.5.0.16.nupkg.sha512",
     "C:\\Users\\mohamed\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.16\\microsoft.aspnetcore.jsonpatch.5.0.16.nupkg.sha512",
     "C:\\Users\\mohamed\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.16\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.16.nupkg.sha512",
     "C:\\Users\\mohamed\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -86,6 +87,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\mohamed\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\mohamed\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
