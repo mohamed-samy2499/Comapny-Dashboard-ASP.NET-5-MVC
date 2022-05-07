@@ -18,4 +18,9 @@
     <ProjectReference Include="..\Business_Logic_Layer\Business_Logic_Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\files\CVs\" />
+    <Folder Include="wwwroot\files\Imgs\" />
+  </ItemGroup>
+
 </Project>

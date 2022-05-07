@@ -1,4 +1,5 @@
 ﻿using Data_Access_Layer.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -25,5 +26,11 @@ namespace Presentaion_Layer.Models
         public virtual DepartmentViewModel Department { get; set; }
         public int DistrictId { get; set; }
         public virtual District District { get; set; }
+        public string ImgName { get; set; }
+        public string CVName { get; set; }
+
+        public IFormFile Image { get; set; }
+        public IFormFile CV { get; set; }
+
     }
 }

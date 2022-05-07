@@ -29,6 +29,8 @@ namespace Data_Access_Layer.Entities
 
         public int DistrictId { get; set; }
         public virtual District District { get; set; }
+        public string ImgName { get; set; }
+        public string CVName { get; set; }
 
     }
 }
