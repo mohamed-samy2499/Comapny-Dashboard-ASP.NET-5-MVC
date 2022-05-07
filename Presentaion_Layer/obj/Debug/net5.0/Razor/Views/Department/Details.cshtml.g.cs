@@ -33,8 +33,15 @@ using Presentaion_Layer.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\Views\_ViewImports.cshtml"
+using Business_Logic_Layer.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd776ff35675f4fe2265ba0bcb5cad536f01faf1", @"/Views/Department/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3cb16cfc956f3486c071bcbb8fb7aaa95c086f4c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cdc327b683a16f71791063a3c77ecc31f011299d", @"/Views/_ViewImports.cshtml")]
     public class Views_Department_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DepartmentViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -88,7 +95,7 @@ using Presentaion_Layer.Models;
 #line hidden
 #nullable disable
             WriteLiteral("</dd>\r\n</dl>\r\n<br />\r\n<br />\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd776ff35675f4fe2265ba0bcb5cad536f01faf14940", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd776ff35675f4fe2265ba0bcb5cad536f01faf15164", async() => {
                 WriteLiteral("Return To Departments");
             }
             );

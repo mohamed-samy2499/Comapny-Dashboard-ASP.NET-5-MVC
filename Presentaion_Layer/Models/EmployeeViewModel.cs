@@ -22,6 +22,8 @@ namespace Presentaion_Layer.Models
         public DateTime HireDate { get; set; }
         [Display(Name = "Department")]
         public int DepartmentId { get; set; }
-        public virtual DepartmentViewModel Department { get; set; } 
+        public virtual DepartmentViewModel Department { get; set; }
+        public int DistrictId { get; set; }
+        public virtual District District { get; set; }
     }
 }

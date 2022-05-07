@@ -46,6 +46,8 @@ namespace Presentaion_Layer.Controllers
         public IActionResult Create()
         {
             ViewBag.Departments = unitOfWork.DepartmentRpository.GetAll().Result;
+            ViewBag.Countries = unitOfWork.CountryRepository.GetAll().Result;
+
             return View();
         }
         [HttpPost]

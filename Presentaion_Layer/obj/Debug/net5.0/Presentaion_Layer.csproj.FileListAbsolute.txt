@@ -323,3 +323,7 @@ C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\ob
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Presentaion_Layer.pdb
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Presentaion_Layer.genruntimeconfig.cache
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Employee\Delete.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

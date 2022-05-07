@@ -12,7 +12,7 @@ namespace Data_Access_Layer.Contexts
     {
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //=> optionsBuilder.UseSqlServer("server=.;Database= CompanyRepository;Trusted_Connection = True;MultipleActiveResultSets = True");
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }

@@ -1,7 +1,12 @@
 ﻿@model EmployeeViewModel
+@inject IUnitOfWork unitofwork
 @{
     ViewData["Title"] = "Create";
     var Departments = new SelectList(ViewBag.Departments,"Id","Name");
+    //var Countries = ViewBag.Countries;
+    var Countries = unitofwork.CountryRepository.GetAll().Result;
+
+
 }
 
 <h1>Create</h1>
@@ -38,9 +43,6 @@
         <label asp-for="IsActive"></label>
         <span asp-validation-for="IsActive" class="text-danger"></span>
     </div>
-        @*<label class="col-form-label" asp-for="@Model.Department.Name"></label>
-        <input class="form-control" asp-for="Department.Name" />
-        <span asp-validation-for="Department.Name"></span>*@
     <div class="form-group">
             <label class="col-form-label" asp-for="DepartmentId"></label>
             <select asp-for="DepartmentId" asp-items="Departments" class="form-control">
@@ -49,8 +51,45 @@
 
             <span asp-validation-for="DepartmentId" class="text-danger"></span>
     </div>
-
-    
+    <br />
+    <br />
+     <br />
+    <br />
+     <div class="form-group">
+            <label class="col-form-label" >Country</label>
+            <select class="form-control" id="countryList">
+                <option>Choose a country...</option>
+                @foreach (var item in Countries)
+               {
+                   <option value="@item.Id">@item.Name</option>
+                   
+               }
+            </select>
+    </div>
+     <br />
+    <br />
+     <br />
+    <br />
+         <div class="form-group">
+            <label class="col-form-label" >City</label>
+            <select class="form-control" id="cityList">
+                <option>Choose a City...</option>
+            </select>
+    </div>
+     <br />
+    <br />
+     <br />
+    <br />
+             <div class="form-group">
+            <label asp-for="District" class="col-form-label" >District</label>
+            <select asp-form="District" class="form-control" id="districtList">
+                <option>Choose a District...</option>
+            </select>
+    </div>
+     <br />
+    <br />
+     <br />
+    <br />
     <input type="submit" class="btn btn-primary" value="Add" />
     <a asp-action="Index" class="btn btn-light">Return to Employees</a>
 </form>
@@ -58,4 +97,51 @@
 @section Scripts
 {
     <partial name= "_ValidationScriptsPartial"/>
+
+    <script>
+        $(function()
+        {
+            $("#countryList").change(function()
+            {
+                 $("#cityList").empty();
+                $("#cityList").append(`<option>Choose a City...</option>`);
+                var countryId = $("#countryList option:selected").val();
+                $.ajax(
+                    {
+                        type:"GET",
+                        url:"/Employee/GetCitiesByCountryId",
+                        data: {id: countryId},
+                        success: function(res)
+                        {
+                            console.log(res);
+                            $.each(res,function(i,e)
+                            {
+                                $("#cityList").append(`<option value="${e.Id}">${e.Name}</option>`)
+                            })
+                        }
+                    })
+            })
+            $("#cityList").change(function()
+            {
+                $("#districtList").empty();
+                $("#districtList").append(`<option>Choose a District...</option>`);
+
+                var cityId = $("#cityList option:selected").val();
+                $.ajax(
+                    {
+                        type:"GET",
+                        url:"/Employee/GetDistrictsByCityId",
+                        data: {id: cityId},
+                        success: function(res)
+                        {
+                            console.log(res);
+                            $.each(res,function(i,e)
+                            {
+                                $("#districtList").append(`<option value="${e.Id}">${e.Name}</option>`)
+                            })
+                        }
+                    })
+            })
+        })
+    </script>
 }
