@@ -12,7 +12,7 @@
 <h1>Create</h1>
 <br />
 <br />
-<form asp-action="Create">
+<form asp-action="Create" asp-controller="Employee" enctype="multipart/form-data">
     <div class="form-group">
         <label class="col-form-label" asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
@@ -37,6 +37,16 @@
         <label class="col-form-label" asp-for="HireDate"></label>
         <input class="form-control" asp-for="HireDate" />
         <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="Image"></label>
+        <input type="file" class="form-control" asp-for="Image" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="CV"></label>
+        <input type="file" class="form-control" asp-for="CV" />
+        <span asp-validation-for="CV" class="text-danger"></span>
     </div>
     <div class="demo-checkbox">
         <input asp-for="IsActive" type="checkbox" />
