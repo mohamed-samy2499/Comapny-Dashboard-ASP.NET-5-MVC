@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data_Access_Layer.Contexts
 {
-    public class AppDbContext:IdentityDbContext
+    public class AppDbContext:IdentityDbContext<ApplicationUser>
     {
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //=> optionsBuilder.UseSqlServer("server=.;Database= CompanyRepository;Trusted_Connection = True;MultipleActiveResultSets = True");

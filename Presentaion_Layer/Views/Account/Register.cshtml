@@ -12,6 +12,7 @@
         <div class="card">
             <div class="body">
                 <form id="sign_up" asp-controller="Account" asp-action="Register">
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="msg">Register a new membership</div>
                     <div class="input-group">
                         <span class="input-group-addon">

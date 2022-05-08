@@ -1,6 +1,7 @@
 using Business_Logic_Layer.Interfaces;
 using Business_Logic_Layer.Rpositories;
 using Data_Access_Layer.Contexts;
+using Data_Access_Layer.Entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -56,7 +57,7 @@ namespace Presentaion_Layer
                     options.LoginPath = new PathString("/Account/Login");
                     options.AccessDeniedPath = new PathString("/Home/error");
                 });
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
@@ -65,7 +66,7 @@ namespace Presentaion_Layer
                 options.Password.RequiredLength = 4;
                 options.SignIn.RequireConfirmedAccount = false;
             }).AddEntityFrameworkStores<AppDbContext>()
-              .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
+              .AddTokenProvider<DataProtectorTokenProvider<ApplicationUser>>(TokenOptions.DefaultProvider);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
