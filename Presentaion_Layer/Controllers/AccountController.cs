@@ -1,10 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Presentaion_Layer.Models;
 
 namespace Presentaion_Layer.Controllers
 {
     public class AccountController : Controller
     {
+        public UserManager<IdentityUser> UserManager { get; }
+        public SignInManager<IdentityUser> SignInManager { get; }
+        #region Constructor
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+        #endregion
         #region Sign up
         public IActionResult Register() 
         {

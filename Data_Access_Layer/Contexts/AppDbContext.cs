@@ -1,4 +1,5 @@
 ﻿using Data_Access_Layer.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data_Access_Layer.Contexts
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext
     {
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //=> optionsBuilder.UseSqlServer("server=.;Database= CompanyRepository;Trusted_Connection = True;MultipleActiveResultSets = True");
