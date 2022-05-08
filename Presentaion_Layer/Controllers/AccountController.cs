@@ -133,8 +133,13 @@ namespace Presentaion_Layer.Controllers
                 }
                 if (user != null) 
                 {
-                    await UserManager.ResetPasswordAsync(user, model.Token, model.Password);
-                    return RedirectToAction(nameof(ResetPasswordDone));
+                    var result = await UserManager.ResetPasswordAsync(user, model.Token, model.Password);
+                    if(result.Succeeded)
+                        return RedirectToAction(nameof(ResetPasswordDone));
+                    foreach(var error in result.Errors) 
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
                 }
             }
             return View(model);
