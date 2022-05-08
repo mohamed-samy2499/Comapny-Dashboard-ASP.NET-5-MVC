@@ -70,6 +70,13 @@ namespace Presentaion_Layer.Controllers
             return View(model);
         }
         #endregion
+        #region Sign Out
+        public async new Task<IActionResult> SignOut() 
+        {
+            await SignInManager.SignOutAsync();
+            return RedirectToAction(nameof(Login));
+        }
+        #endregion
         #region Forgot password
         public IActionResult ForgotPassword()
         {
