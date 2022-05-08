@@ -113,7 +113,31 @@ namespace Presentaion_Layer.Controllers
         #region Reset Password
         public IActionResult ResetPassword()
         {
-            return View();
+            string Email = Request.Query["Email"].ToString();
+            string Token = Request.Query["Token"].ToString();
+            ViewData["token"] = Token;
+            ViewData["email"] = Email;
+
+            return View(new ResetPasswordViewModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = null;
+                if(model.Email != null && model.Token != null) 
+                {
+                    
+                    user = await UserManager.FindByEmailAsync(model.Email);
+                }
+                if (user != null) 
+                {
+                    await UserManager.ResetPasswordAsync(user, model.Token, model.Password);
+                    return RedirectToAction(nameof(ResetPasswordDone));
+                }
+            }
+            return View(model);
         }
         public IActionResult ResetPasswordDone()
         {
