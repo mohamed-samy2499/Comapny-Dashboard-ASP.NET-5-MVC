@@ -329,3 +329,10 @@ C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bi
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Shared\_AuthLayout.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Account\ForgotPassword.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Account\CompleteForgotPassword.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Account\ResetPassword.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Account\ResetPasswordDone.cshtml.g.cs
