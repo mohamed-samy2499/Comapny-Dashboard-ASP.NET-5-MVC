@@ -1,4 +1,5 @@
-﻿using Data_Access_Layer.Entities;
+﻿using Business_Logic_Layer.Helper;
+using Data_Access_Layer.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentaion_Layer.Models;
@@ -81,6 +82,28 @@ namespace Presentaion_Layer.Controllers
         public IActionResult ForgotPassword()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model) 
+        {
+            if (ModelState.IsValid) 
+            {
+                //send an email with the link to reset page
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                if(user != null) 
+                {
+                    var Token = await UserManager.GeneratePasswordResetTokenAsync(user);
+                    var ResetPasswordLink = Url.Action("ResetPassword", "Account", new { Email = user.Email , Token = Token},Request.Scheme);
+                    var email = new Email()
+                    {
+                        Title = "Reset Password",
+                        Body = ResetPasswordLink
+                    };
+                    EmailSettings.SendEmail(email, user);
+                    return RedirectToAction(nameof(CompleteForgotPassword));
+                }
+            }
+            return View(model);
         }
         public IActionResult CompleteForgotPassword()
         {
