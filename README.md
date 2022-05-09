@@ -1,4 +1,4 @@
-# Comapny-Website-ASP.NET Core 5-MVC
+# Comapny-Dashboard-ASP.NET Core 5-MVC
 
 ## Architecture Used
 ### Three Tier Architecture
