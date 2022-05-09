@@ -19,7 +19,7 @@ namespace Presentaion_Layer.Controllers
         #endregion
 
         #region Constructor
-        public RoleController(RoleManager<ApplicationUser> roleManager)
+        public RoleController(RoleManager<IdentityRole> roleManager)
         {
             RoleManager = roleManager;
         }
@@ -66,6 +66,10 @@ namespace Presentaion_Layer.Controllers
                 var result = await RoleManager.DeleteAsync(role);
                 if(result.Succeeded)
                     return RedirectToAction(nameof(Index));
+                foreach (var item in result.Errors) 
+                {
+                    ModelState.AddModelError(string.Empty, item.Description);
+                }
             }
             catch
             {

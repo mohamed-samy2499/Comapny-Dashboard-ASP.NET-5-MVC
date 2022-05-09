@@ -48,32 +48,37 @@ namespace Presentaion_Layer.Controllers
         #endregion
 
         #region Delete
-        //public IActionResult Delete(int? id)
-        //{
+        public async Task<IActionResult> Delete(string id)
+        {
 
-        //    return Details(id, "Delete");
-        //}
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int? id, EmployeeViewModel emp)
-        //{
-        //    if (id != emp.Id)
-        //        return NotFound();
-        //    try
-        //    {
-        //        var employee = unitOfWork.EmployeeRepository.Get(id).Result;
-        //        DocumentSetting.DeleteFile("wwwroot/files/Imgs/", employee.ImgName);
-        //        DocumentSetting.DeleteFile("wwwroot/files/CVs/", employee.CVName);
+            return await Details(id, "Delete");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id, ApplicationUser model)
+        {
+            if (id != model.Id)
+                return NotFound();
+            try
+            {
+                var user = await UserManager.FindByIdAsync(id);
 
-        //        await unitOfWork.EmployeeRepository.Delete(employee);
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return NotFound();
-        //    }
-        //}
+                var result = await UserManager.DeleteAsync(user);
+                if (result.Succeeded)
+                    return RedirectToAction(nameof(Index));
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, item.Description);
+                }
+            }
+            catch
+            {
+                return View(model);
+            }
+            return View(model);
+        }
         #endregion
+
 
         #region Edit
         [HttpGet]
