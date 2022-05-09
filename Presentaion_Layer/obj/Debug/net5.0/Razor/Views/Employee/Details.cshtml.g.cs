@@ -40,8 +40,15 @@ using Business_Logic_Layer.Interfaces;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"94274c8b3b7083067d817ec291ada0707099efd0", @"/Views/Employee/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cdc327b683a16f71791063a3c77ecc31f011299d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7c906f73649c4a1af9562c7e78ee4c53e0e1e32b", @"/Views/_ViewImports.cshtml")]
     public class Views_Employee_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<EmployeeViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("height", new global::Microsoft.AspNetCore.Html.HtmlString("40"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -193,7 +200,7 @@ using Business_Logic_Layer.Interfaces;
 #line hidden
 #nullable disable
             WriteLiteral("</div>\r\n        <div class=\"col-md-10\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "94274c8b3b7083067d817ec291ada0707099efd012193", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "94274c8b3b7083067d817ec291ada0707099efd012415", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -228,7 +235,7 @@ AddHtmlAttributeValue("", 1409, Model.ImgName, 1409, 14, false);
 #line hidden
 #nullable disable
             WriteLiteral("</div>\r\n         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94274c8b3b7083067d817ec291ada0707099efd014454", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94274c8b3b7083067d817ec291ada0707099efd014676", async() => {
                 WriteLiteral("Open CV");
             }
             );
@@ -254,7 +261,7 @@ AddHtmlAttributeValue("", 1660, Model.CVName, 1660, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94274c8b3b7083067d817ec291ada0707099efd016190", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94274c8b3b7083067d817ec291ada0707099efd016412", async() => {
                 WriteLiteral("Download CV");
             }
             );
@@ -296,7 +303,7 @@ AddHtmlAttributeValue("", 1758, Model.CVName, 1758, 13, false);
 #line hidden
 #nullable disable
             WriteLiteral("</div>\r\n    </div>\r\n     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94274c8b3b7083067d817ec291ada0707099efd018654", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94274c8b3b7083067d817ec291ada0707099efd018876", async() => {
                 WriteLiteral("Return to Employees");
             }
             );

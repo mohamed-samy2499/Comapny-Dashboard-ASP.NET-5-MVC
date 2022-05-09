@@ -53,7 +53,7 @@ namespace Presentaion_Layer.Controllers
 
             return await Details(id, "Delete");
         }
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id, IdentityRole model)
         {
@@ -108,6 +108,32 @@ namespace Presentaion_Layer.Controllers
                 }
             }
             return View(model);
+        }
+        #endregion
+        #region Create
+        [HttpGet]
+        public  IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(IdentityRole role)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await RoleManager.CreateAsync(role);
+                    if (result.Succeeded)
+                        return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    return View(role);
+                }
+            }
+            return View(role);
         }
         #endregion
         #endregion
