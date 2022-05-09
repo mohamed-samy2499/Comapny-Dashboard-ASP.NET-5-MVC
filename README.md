@@ -1,6 +1,6 @@
-### Comapny-Website-ASP.NET Core 5-MVC
+# Comapny-Website-ASP.NET Core 5-MVC
 
-# Architecture Used
+## Architecture Used
 Three Tier Architecture:
 1. Data Access Layer:
   - For Dealing with Database Entities And Migrations.
