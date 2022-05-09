@@ -1,4 +1,4 @@
-﻿
+﻿@inject SignInManager<ApplicationUser> signInManager
 <!DOCTYPE html>
 <html>
 
@@ -319,19 +319,33 @@
                             <span>Employees</span>
                         </a>
                     </li>
-                    <li>
-                        <a asp-controller="User" asp-action="Index">
-                            <i class="material-icons">account_circle</i>
-                            <span>Users</span>
-                        </a>
-                    </li>
-                     <li>
-                        <a asp-controller="Role" asp-action="Index">
-                            <i class="material-icons">account_circle</i>
-                            <span>Roles</span>
-                        </a>
-                    </li>
-                    
+                    @if(signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a asp-controller="User" asp-action="Index">
+                                <i class="material-icons">account_circle</i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a asp-controller="Role" asp-action="Index">
+                                <i class="material-icons">account_circle</i>
+                                <span>Roles</span>
+                            </a>
+                        </li>
+
+                    }
+                    else if( signInManager.IsSignedIn(User) && User.IsInRole("HR"))
+                    {
+                        
+                         <li>
+                            <a asp-controller="User" asp-action="Index">
+                                <i class="material-icons">account_circle</i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                    }
+
                 </ul>
             </div>
             <!-- #Menu -->

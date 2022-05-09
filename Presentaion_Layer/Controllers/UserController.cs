@@ -9,9 +9,12 @@ using System.IO;
 using System;
 using Business_Logic_Layer.Helper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Presentaion_Layer.Controllers
 {
+    [Authorize(Roles = "Admin , HR")]
+
     public class UserController : Controller
     {
         #region Properties

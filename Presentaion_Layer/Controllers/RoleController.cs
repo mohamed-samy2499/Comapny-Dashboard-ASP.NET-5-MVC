@@ -9,19 +9,23 @@ using System.IO;
 using System;
 using Business_Logic_Layer.Helper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Presentaion_Layer.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         #region Properties
         public RoleManager<IdentityRole> RoleManager { get; }
+        public UserManager<ApplicationUser> UserManager { get; }
         #endregion
 
         #region Constructor
-        public RoleController(RoleManager<IdentityRole> roleManager)
+        public RoleController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             RoleManager = roleManager;
+            UserManager = userManager;
         }
         #endregion
 
@@ -51,7 +55,12 @@ namespace Presentaion_Layer.Controllers
         public async Task<IActionResult> Delete(string id)
         {
 
-            return await Details(id, "Delete");
+            if (id == null)
+                return NotFound();
+            var Role = await RoleManager.FindByIdAsync(id);
+            if (Role == null)
+                return NotFound();
+            return View("Delete", Role);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -83,7 +92,12 @@ namespace Presentaion_Layer.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
-            return await Details(id, "Edit");
+            if (id == null)
+                return NotFound();
+            var Role = await RoleManager.FindByIdAsync(id);
+            if (Role == null)
+                return NotFound();
+            return View("Edit", Role);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -134,6 +148,56 @@ namespace Presentaion_Layer.Controllers
                 }
             }
             return View(role);
+        }
+        #endregion
+        #region Assign Roles
+        public async Task<IActionResult> AddOrRemoveUsers(string RoleId) 
+        {
+            if (RoleId == null)
+                return NotFound();
+            var role = await RoleManager.FindByIdAsync(RoleId);
+            if (role == null)
+                return NotFound();
+            var users = UserManager.Users;
+            List<UserInRoleViewModel> UsersInRole = new List<UserInRoleViewModel>();
+            foreach(var user in users) 
+            {
+                var UserInRole = new UserInRoleViewModel()
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName
+                };
+                if(await UserManager.IsInRoleAsync(user,role.Name))                 
+                    UserInRole.IsSelected = true;
+                else
+                    UserInRole.IsSelected = false;
+                UsersInRole.Add(UserInRole);
+                
+            }
+            return View(UsersInRole);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddOrRemoveUsers(List<UserInRoleViewModel> model,string RoleId)
+        {
+            if (ModelState.IsValid) 
+            {
+                var role = await RoleManager.FindByIdAsync(RoleId);
+                foreach(var user in model) 
+                {
+                    var FullUser = await UserManager.FindByIdAsync(user.UserId);  
+                    if (!user.IsSelected && await UserManager.IsInRoleAsync(FullUser,role.Name)) 
+                    {
+                        await UserManager.RemoveFromRoleAsync(FullUser,role.Name);
+                    }
+                    else if(user.IsSelected && !await UserManager.IsInRoleAsync(FullUser, role.Name)) 
+                    {
+                        await UserManager.AddToRoleAsync(FullUser,role.Name);
+                    }
+                }
+                return RedirectToAction("Edit", "Role", new { id = RoleId });
+            }
+            return View(model);
         }
         #endregion
         #endregion

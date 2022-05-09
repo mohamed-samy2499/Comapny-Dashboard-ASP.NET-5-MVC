@@ -350,3 +350,4 @@ C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\ob
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Role\Edit.cshtml.g.cs
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Role\Create.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\Role\AddOrRemoveUsers.cshtml.g.cs
