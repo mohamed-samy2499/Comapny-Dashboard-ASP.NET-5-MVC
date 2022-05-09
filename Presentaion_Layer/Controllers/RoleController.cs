@@ -45,8 +45,23 @@ namespace Presentaion_Layer.Controllers
             if (id == null)
                 return NotFound();
             var Role = await RoleManager.FindByIdAsync(id);
+
             if (Role == null)
                 return NotFound();
+            var users = UserManager.Users;
+            List<UserInRoleViewModel> UsersInRole = new List<UserInRoleViewModel>();
+            foreach(var user in users) 
+            {
+                var UserInRole = new UserInRoleViewModel()
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName
+                };
+                if (await UserManager.IsInRoleAsync(user, Role.Name))
+                    UsersInRole.Add(UserInRole);
+            }
+            ViewData["UsersInRole"] = UsersInRole;
+
             return View(ViewName, Role);
         }
         #endregion
