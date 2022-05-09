@@ -1,0 +1,36 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1>Edit User</h1>
+<br />
+<br />
+<form asp-action = "Edit">
+    <input hidden asp-for="Id" />
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.UserName"></label>
+        <input class="form-control" asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.Email"></label>
+        <input class="form-control" asp-for="Email"/>
+        <span asp-validation-for="Email"></span>
+
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" asp-for="@Model.PhoneNumber"></label>
+        <input class="form-control" asp-for="PhoneNumber" placeholder="@Html.DisplayFor(m=>m.PhoneNumber)"/>
+        <span asp-validation-for="PhoneNumber"></span>
+
+    </div>
+ <div class="demo-checkbox">
+        <input asp-for="IsAgree" type="checkbox" />
+        <label asp-for="IsAgree"></label>
+        <span asp-validation-for="IsAgree" class="text-danger"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Update" />
+    <a asp-action="Index" class="btn btn-light">Return to Employees</a>
+</form>

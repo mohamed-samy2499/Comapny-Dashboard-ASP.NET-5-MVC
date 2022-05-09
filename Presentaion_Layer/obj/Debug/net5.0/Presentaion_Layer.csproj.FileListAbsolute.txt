@@ -341,3 +341,7 @@ C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bi
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\User\Delete.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\User\Details.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.cs
+C:\Users\mohamed\source\repos\Comapny-Website-ASP.NET-5-MVC\Presentaion_Layer\obj\Debug\net5.0\Razor\Views\User\Index.cshtml.g.cs

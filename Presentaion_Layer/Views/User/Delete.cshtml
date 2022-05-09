@@ -1,0 +1,60 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Delete";
+    string DeptName = ViewData["DeptName"] as string;
+}
+<h1>Delete Employee</h1>
+<br />
+<br />
+<br />
+
+<h2>Are you sure to Delete?</h2>
+<div class="container">
+    <form asp-action="Delete" asp-controller="Employee">
+        <input hidden asp-for="Id"/>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Name)</div>
+        <div class="col-md-10" asp-for = "@Model.Name">@Html.DisplayFor(m => m.Name)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Address)</div>
+        <div class="col-md-10" asp-for = "@Model.Address">@Html.DisplayFor(m => m.Address)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Salary)</div>
+        <div class="col-md-10" asp-for = "@Model.Salary">@Html.DisplayFor(m => m.Salary)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.Email)</div>
+        <div class="col-md-10" asp-for = "@Model.Salary">@Html.DisplayFor(m => m.Email)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.HireDate)</div>
+        <div class="col-md-10" asp-for = "@Model.HireDate">@Html.DisplayFor(m => m.HireDate)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.IsActive)</div>
+        <div class="col-md-10" asp-for="@Model.IsActive">@Html.DisplayFor(m => m.IsActive)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.DisplayNameFor(m => m.DepartmentId)</div>
+        <div class="col-md-10" asp-for="@Model.DepartmentId">@DeptName</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2" asp-for="ImgName">@Html.DisplayNameFor(m => m.Image)</div>
+        <div class="col-md-10" asp-for="@Model.ImgName"><img src="~/files/Imgs/@Model.ImgName" height="40" width="40" alt="No image" class="rounded-pill-circle"/></div>
+    </div>  
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-2" asp-for="CVName">@Html.DisplayNameFor(m => m.CV)</div>
+         <a asp-for="@Model.CVName" href="~/files/CVs/@Model.CVName" class="btn btn-primary" target="_blank">Open CV</a>
+         <a href="~/files/CVs/@Model.CVName" download="download" class="btn btn-info">Download CV</a>
+    </div> 
+    <br />
+    <br />
+     <input type="submit" class="btn btn-primary" value="Delete" />
+     <a asp-action="Index" class="btn btn-light">Return to Employees</a>
+    </form>
+</div>
+
